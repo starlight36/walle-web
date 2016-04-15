@@ -1,7 +1,7 @@
 FROM php:apache
 
-RUN apt-get update && apt-get install -y zlib1g-dev gettext-base libmcrypt-dev libicu-dev unzip \
-        && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y gettext-base libmcrypt-dev libicu-dev \
+      zlib1g-dev unzip git svn ssh ansible && rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-install bcmath intl mbstring mcrypt mysqli opcache pdo_mysql
 RUN a2enmod rewrite
